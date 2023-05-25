@@ -1,14 +1,13 @@
 import React from "react";
 import { Box } from "@mui/material";
-
-import Layout from "@/layout/Layout";
+import AuthenticationLayout from "@/layout/AuthenticationLayout";
 
 const Account = () => {
   return <Box>Account</Box>;
 };
 
 Account.getLayout = function getLayout(page) {
-  return <Layout>{page}</Layout>;
+  return <AuthenticationLayout>{page}</AuthenticationLayout>;
 };
 
 export default Account;
