@@ -31,13 +31,11 @@ const authReducer = handleActions(
       ...state,
       isSignUpRequest: false,
       isSignUpSuccess: true,
-      isSignUpFailure: false,
       userData: payload,
     }),
     [signUpFailure]: (state, { payload }) => ({
       ...state,
       isSignUpRequest: false,
-      isSignUpSuccess: false,
       isSignUpFailure: true,
       errorMessage: payload,
     }),
