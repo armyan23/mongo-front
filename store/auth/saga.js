@@ -3,6 +3,9 @@ import {
   signUpRequest,
   signUpSuccess,
   signUpFailure,
+  signInRequest,
+  signInSuccess,
+  signInFailure,
   authenticatedRequest,
   authenticatedSuccess,
   authenticatedFailure,
@@ -21,6 +24,20 @@ function* signUp({ payload }) {
     }
   } catch (err) {
     yield put(signUpFailure(err.response?.data?.message));
+  }
+}
+
+function* signIn({ payload }) {
+  try {
+    const response = yield call(() => instance.post("/api/sign-in", payload));
+
+    if (response?.status === 200) {
+      yield put(signInSuccess(response.data));
+    } else {
+      yield put(signInFailure(response?.response?.data?.message));
+    }
+  } catch (err) {
+    yield put(signInFailure(err.response?.data?.message));
   }
 }
 
@@ -46,5 +63,6 @@ function* authenticated({ payload }) {
 
 export default function* authSaga() {
   yield takeLatest(signUpRequest, signUp);
+  yield takeLatest(signInRequest, signIn);
   yield takeLatest(authenticatedRequest, authenticated);
 }

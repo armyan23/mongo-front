@@ -50,7 +50,7 @@ DateCustomField.propTypes = {
   onChange: PropTypes.func,
   onBlur: PropTypes.func,
   setFieldValue: PropTypes.func,
-  errorTouched: PropTypes.bool,
+  errorTouched: PropTypes.any,
   error: PropTypes.string,
 };
 
