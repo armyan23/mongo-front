@@ -1,6 +1,6 @@
 import React from "react";
 import { Box } from "@mui/material";
-import AuthenticationLayout from "@/layout/AuthenticationLayout";
+import AuthenticationLayout from "layout/AuthenticationLayout";
 
 const Account = () => {
   return <Box>Account</Box>;

@@ -16,6 +16,7 @@ const initialState = {
   isAuthenticatedSuccess: false,
   isAuthenticatedFailure: false,
   userData: {},
+  successMessage: "",
   errorMessage: "",
 };
 
@@ -31,7 +32,8 @@ const authReducer = handleActions(
       ...state,
       isSignUpRequest: false,
       isSignUpSuccess: true,
-      userData: payload,
+      successMessage: payload.message,
+      userData: payload.data,
     }),
     [signUpFailure]: (state, { payload }) => ({
       ...state,

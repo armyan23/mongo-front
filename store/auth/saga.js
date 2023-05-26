@@ -12,12 +12,10 @@ import instance from "config/instance";
 
 function* signUp({ payload }) {
   try {
-    const response = yield call(() =>
-      instance.post("/api/auth/register", payload)
-    );
+    const response = yield call(() => instance.post("/api/sign-up", payload));
 
     if (response?.status === 200) {
-      yield put(signUpSuccess(response.data.message));
+      yield put(signUpSuccess(response.data));
     } else {
       yield put(signUpFailure(response?.response?.data?.message));
     }
