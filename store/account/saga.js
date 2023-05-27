@@ -49,9 +49,11 @@ function* updateName({ payload }) {
   }
 }
 
-function* updatePassword() {
+function* updatePassword({ payload }) {
   try {
-    const response = yield call(() => instance.patch("/api/account/password"));
+    const response = yield call(() =>
+      instance.patch("/api/account/password", payload)
+    );
 
     if (response?.status === 200) {
       yield put(updatePasswordSuccess(response.data));

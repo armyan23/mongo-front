@@ -5,6 +5,7 @@ import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import TabContext from "@mui/lab/TabContext";
 import AccountDetails from "@/components/account/AccountDetails";
+import ChangePassword from "@/components/account/AccountPassword";
 
 const AccountTabs = () => {
   const [value, setValue] = React.useState("1");
@@ -25,7 +26,9 @@ const AccountTabs = () => {
         <TabPanel value="1" sx={{ padding: 0 }}>
           <AccountDetails />
         </TabPanel>
-        <TabPanel value="2">Change password</TabPanel>
+        <TabPanel value="2" sx={{ padding: 0, paddingY: 3 }}>
+          <ChangePassword />
+        </TabPanel>
       </TabContext>
     </Box>
   );
