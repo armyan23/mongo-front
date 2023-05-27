@@ -9,7 +9,7 @@ import Male from "@/public/images/gender/Male.jpg";
 import Female from "@/public/images/gender/Female.jpg";
 import AddIcon from "@mui/icons-material/Add";
 
-const ProfileImage = () => {
+const AccountImage = () => {
   const dispatch = useDispatch();
 
   const {
@@ -130,4 +130,4 @@ const ProfileImage = () => {
   );
 };
 
-export default ProfileImage;
+export default AccountImage;

@@ -6,7 +6,7 @@ import { Box, Container, Grid, Typography } from "@mui/material";
 import usePreviousList from "@/hooks/usePreviousList";
 import { getAccountRequest } from "@/store/account/action";
 import AuthenticationLayout from "@/layout/AuthenticationLayout";
-import ProfileImage from "@/components/account/ProfileImage";
+import AccountImage from "@/components/account/AccountImage";
 
 const Account = () => {
   const dispatch = useDispatch();
@@ -42,7 +42,7 @@ const Account = () => {
       </Box>
       <Grid container spacing={3} justifyContent={"space-between"}>
         <Grid item xs={6} lg={4} sx={{ minWidth: 350 }}>
-          <ProfileImage url={account.photo} type={account.gender} />
+          <AccountImage url={account.photo} type={account.gender} />
         </Grid>
         <Grid item xs={6} lg={4}>
           Account details
