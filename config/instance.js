@@ -10,7 +10,7 @@ const instance = axios.create({
 });
 
 export const handleHeaders = (token = "") => {
-  instance.defaults.headers["Authorization"] = `barer ${token}`;
+  instance.defaults.headers["Authorization"] = token;
   localStorage.setItem("token", token);
 };
 
