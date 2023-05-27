@@ -21,16 +21,16 @@ import { initialValues, validationSchema } from "@/components/schema/register";
 import usePreviousList from "@/hooks/usePreviousList";
 import { signUpRequest } from "@/store/auth/action";
 import { typeGender } from "@/utils/utils";
-import AuthLayout from "layout/AuthLayout";
+import AuthLayout from "@/layout/AuthLayout";
 import CustomField from "@/components/form/CustomField";
 import DateCustomField from "@/components/form/DateCustomField";
 import PasswordCustomField from "@/components/form/PasswordCustomField";
+import ImageUpload from "@/components/form/ImageUpload";
 
 const Register = () => {
   const dispatch = useDispatch();
   const router = useRouter();
-  // TODO: Add Register fields
-  // name, email, password, dateOfBirthday, gender, photo
+
   const {
     isSignUpRequest,
     isSignUpSuccess,
@@ -55,7 +55,13 @@ const Register = () => {
 
   const onFinish = (values) => {
     delete values.confirmPassword;
-    dispatch(signUpRequest(values));
+
+    const data = new FormData();
+    for (const key in values) {
+      data.append(key, values[key] ? values[key] : null);
+    }
+
+    dispatch(signUpRequest(data));
   };
 
   return (
@@ -169,6 +175,13 @@ const Register = () => {
                     <FormHelperText error>{errors.gender}</FormHelperText>
                   ) : null}
                 </FormControl>
+              </Grid>
+              <Grid item xs={12} pt={1}>
+                <ImageUpload
+                  name={"photo"}
+                  value={values.photo}
+                  setFieldValue={setFieldValue}
+                />
               </Grid>
               <LoadingButton
                 loading={isSignUpRequest}
