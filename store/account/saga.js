@@ -61,9 +61,11 @@ function* updatePassword() {
   }
 }
 
-function* updatePhoto() {
+function* updatePhoto({ payload }) {
   try {
-    const response = yield call(() => instance.patch("/api/account/photo"));
+    const response = yield call(() =>
+      instance.patch("/api/account/photo", payload)
+    );
 
     if (response?.status === 200) {
       yield put(updatePhotoSuccess(response.data));

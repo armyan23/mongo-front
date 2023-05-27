@@ -108,6 +108,7 @@ const accountReducer = handleActions(
       isUpdatePhotoRequest: false,
       isUpdatePhotoSuccess: true,
       account: payload.data,
+      successMessage: payload.message,
     }),
     [updatePhotoFailure]: (state, { payload }) => ({
       ...state,
@@ -126,7 +127,8 @@ const accountReducer = handleActions(
       ...state,
       isDeletePhotoRequest: false,
       isDeletePhotoSuccess: true,
-      successMessage: payload.data,
+      account: { ...state.account, photo: null },
+      successMessage: payload.message,
     }),
     [deletePhotoFailure]: (state, { payload }) => ({
       ...state,

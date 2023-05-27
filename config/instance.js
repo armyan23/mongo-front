@@ -9,6 +9,13 @@ const instance = axios.create({
   headers,
 });
 
+let accessToken =
+  typeof window !== "undefined" && localStorage.getItem("token");
+
+if (accessToken) {
+  instance.defaults.headers["Authorization"] = accessToken;
+}
+
 export const handleHeaders = (token = "") => {
   instance.defaults.headers["Authorization"] = token;
   localStorage.setItem("token", token);
