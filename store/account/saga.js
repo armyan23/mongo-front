@@ -33,9 +33,11 @@ function* getAccountData() {
   }
 }
 
-function* updateName() {
+function* updateName({ payload }) {
   try {
-    const response = yield call(() => instance.patch("/api/account/name"));
+    const response = yield call(() =>
+      instance.patch("/api/account/name", payload)
+    );
 
     if (response?.status === 200) {
       yield put(updateNameSuccess(response.data));

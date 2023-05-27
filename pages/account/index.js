@@ -7,6 +7,7 @@ import usePreviousList from "@/hooks/usePreviousList";
 import { getAccountRequest } from "@/store/account/action";
 import AuthenticationLayout from "@/layout/AuthenticationLayout";
 import AccountImage from "@/components/account/AccountImage";
+import AccountTabs from "@/components/account/AccountTabs";
 
 const Account = () => {
   const dispatch = useDispatch();
@@ -40,14 +41,18 @@ const Account = () => {
           Account
         </Typography>
       </Box>
-      <Grid container spacing={3} justifyContent={"space-between"}>
-        <Grid item xs={6} lg={4} sx={{ minWidth: 350 }}>
-          <AccountImage url={account.photo} type={account.gender} />
+      {account ? (
+        <Grid container spacing={3} justifyContent={"space-between"}>
+          <Grid item xs={12} sm={7} xl={4} lg={4} sx={{ minWidth: 350 }}>
+            <AccountImage url={account.photo} type={account.gender} />
+          </Grid>
+          <Grid item xs={12} sm={7} xl={7}>
+            <AccountTabs />
+          </Grid>
         </Grid>
-        <Grid item xs={6} lg={4}>
-          Account details
-        </Grid>
-      </Grid>
+      ) : (
+        <>Loading</>
+      )}
     </Container>
   );
 };

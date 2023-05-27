@@ -69,7 +69,8 @@ const accountReducer = handleActions(
       ...state,
       isUpdateNameRequest: false,
       isUpdateNameSuccess: true,
-      successMessage: payload.data,
+      account: payload.data,
+      successMessage: payload.message,
     }),
     [updateNameFailure]: (state, { payload }) => ({
       ...state,
@@ -88,7 +89,7 @@ const accountReducer = handleActions(
       ...state,
       isUpdatePasswordRequest: false,
       isUpdatePasswordSuccess: true,
-      successMessage: payload.data,
+      successMessage: payload.message,
     }),
     [updatePasswordFailure]: (state, { payload }) => ({
       ...state,

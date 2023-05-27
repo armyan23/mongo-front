@@ -19,10 +19,7 @@ const ImageUpload = ({ name, value, setFieldValue }) => {
           type="file"
           name="photo"
           hidden
-          onChange={(event) => {
-            console.log(event.target.files[0]);
-            setFieldValue(name, event.target.files[0]);
-          }}
+          onChange={(event) => setFieldValue(name, event.target.files[0])}
         />
       </Button>
 
