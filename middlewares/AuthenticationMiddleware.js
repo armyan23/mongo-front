@@ -26,7 +26,7 @@ const AuthenticationMiddleware = ({ children }) => {
     if (token) {
       dispatch(authenticatedRequest(token));
     } else {
-      setLoading(false);
+      router.push("/");
     }
   }, [token]);
 

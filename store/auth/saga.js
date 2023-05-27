@@ -11,7 +11,7 @@ import {
   authenticatedFailure,
 } from "./action";
 
-import instance from "config/instance";
+import instance, { handleHeaders } from "config/instance";
 
 function* signUp({ payload }) {
   try {
@@ -32,6 +32,8 @@ function* signIn({ payload }) {
     const response = yield call(() => instance.post("/api/sign-in", payload));
 
     if (response?.status === 200) {
+      handleHeaders(response.data.data);
+
       yield put(signInSuccess(response.data));
     } else {
       yield put(signInFailure(response?.response?.data?.message));

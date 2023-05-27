@@ -58,6 +58,7 @@ const authReducer = handleActions(
       ...state,
       isSignInRequest: false,
       isSignInSuccess: true,
+      isAuthenticatedSuccess: true,
       userData: payload.data,
     }),
     [signInFailure]: (state, { payload }) => ({
