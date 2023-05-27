@@ -5,7 +5,7 @@ const initialState = {
   isGetPeopleRequest: false,
   isGetPeopleSuccess: false,
   isGetPeopleFailure: false,
-  people: {},
+  people: [],
   errorMessage: "",
 };
 

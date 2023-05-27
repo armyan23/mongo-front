@@ -16,14 +16,18 @@ const AuthenticationLayout = ({ children }) => {
 
   return (
     <AuthenticationMiddleware>
-      <Box display={"flex"} justifyContent={"end"} px={4} pt={2}>
-        <Link href="/people">
-          <Button type="primary">People</Button>
-        </Link>
-        <Link href="/account">
-          <Button type="primary">Account</Button>
-        </Link>
-        <Button onClick={handleLogout}>Logout</Button>
+      <Box display={"flex"} justifyContent={"space-between"} px={4} pt={2}>
+        <div>
+          <Link href="/people">
+            <Button type="primary">People</Button>
+          </Link>
+        </div>
+        <div>
+          <Link href="/account">
+            <Button type="primary">Account</Button>
+          </Link>
+          <Button onClick={handleLogout}>Logout</Button>
+        </div>
       </Box>
       <Box>{children}</Box>
     </AuthenticationMiddleware>

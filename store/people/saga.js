@@ -5,7 +5,7 @@ import instance from "config/instance";
 
 function* getPeople() {
   try {
-    const response = yield call(() => instance.get("/api/account"));
+    const response = yield call(() => instance.get("/api/people/all"));
 
     if (response?.status === 200) {
       yield put(getPeopleSuccess(response.data));
